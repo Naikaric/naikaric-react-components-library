@@ -1,8 +1,18 @@
-body {
+@import 'variables';
+
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $body-color;
+  color: $font-color-text;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+  margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +20,97 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $font-color-heading;
+}
+
+h1 {
+  &:not(:last-child) {
+    margin-bottom: $h1-mb;
+  }
+}
+
+h2, h3, h4, h5, h6 {
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+
+p {
+  &:not(:last-child) {
+    margin-bottom: 6px;
+  }
+}
+
+.nrcl-page {
+  column-gap: $menu-content-gap;
+  display: flex;
+  padding: $page-pt $page-pl-pr $page-pb;
+
+  &__menu {
+    background: $main-background-color;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    left: 0;
+    max-width: $menu-width;
+    overflow-y: auto;
+    padding: $menu-padding;
+    position: fixed;
+    top: 0;
+    width: $menu-width;
+    
+    a {
+      color: $font-color-text;
+      padding: 5px 0;
+      text-decoration: none;
+      transition: $transition-default;
+
+      &:hover {
+        color: $link-color-hover;
+      }
+    }
+  }
+
+  &__content {
+    border-radius: $br-block;
+    box-sizing: border-box;
+    margin-left: auto;
+    max-height: calc(100vh - ($page-pt + $page-pb));
+    max-width: calc(100% - $menu-width);
+    overflow: hidden;
+    width: calc(100% - $menu-width);
+
+    & > h1 {
+      padding-left: 20px;
+    }
+  }
+}
+
+.nrcl-components {
+    background: $main-background-color;
+    border-radius: $br-block;
+    height: calc(100% - $h1-mb - $content-padding*2);
+    overflow-y: auto;
+    padding: $content-padding;
+
+    &__element {
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+}
+
+.nrcl-components__category {
+  &:not(:last-child) {
+    margin-bottom: 50px;
+  }
+
+  &-description {
+    &:not(:last-child) {
+      margin-bottom: 25px;
+    }
+  }
 }

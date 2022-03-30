@@ -11,99 +11,70 @@ import Button from './components/ui/Button';
 import Field from './components/ui/Field';
 
 const App = () => {
-  const { register, handleSubmit, setError, clearErrors, formState: { errors } } = useForm({ shouldFocusError: false, });
+  const { register, formState: { errors } } = useForm({ shouldFocusError: false });
 
   return (
-    <div>
-      <h1>Компоненты</h1>
-      <div>
-        <h2>Кнопки</h2>
-        <div>
-          <div>
-            <Button onClick={() => alert('Ивент на кнопке работает')}>Кнопка</Button>
-          </div>
-          <div>Обычная кнопка</div>
-        </div>
+    <div className='nrcl-page'>
+      <div className='nrcl-page__menu'>
+          <a href="#buttons">Кнопки</a>
+          <a href="#text-fields">Текстовые поля</a>
       </div>
-      <div>
-        <h2>Поля</h2>
-        <div>
-          <div>
-            <Field type='text' hookForm={{
-              register,
-              settings: {
-                  name: 'field1',
-              },
-              errors,
-            }} />
+      <div className='nrcl-page__content'>
+        <h1>Компоненты</h1>
+        <div className='nrcl-components'>
+          <div id='buttons' className='nrcl-components__category'>
+            <h2 className='nrcl-components__category-title'>Кнопки</h2>
+            <div className='nrcl-components__category-description'>
+              <h3>Описание</h3>
+              <div>
+                <p>Кнопки используются для инициализации какого-либо действия на сайте.</p>
+              </div>
+            </div>
+            <div className='nrcl-components__category-description'>
+              <h3>Ограничения</h3>
+              <div>
+                <p>Нельзя использовать кнопки в качестве навигационных элементов. Когда желаемым действием является переход пользователя на новую страницу, используйте ссылки.</p>
+              </div>
+            </div>
+            <div className='nrcl-components__category-examples'>
+              <div className='nrcl-components__element'>
+                <h3>Базовая кнопка</h3>
+                <div>
+                  <Button>Кнопка</Button>
+                </div>
+              </div>
+              <div className='nrcl-components__element'>
+                <h3>Заблокированная кнопка</h3>
+                <div>
+                  <Button disabled>Кнопка</Button>
+                </div>
+              </div>
+            </div>
           </div>
-          <div>Обычное поле</div>
-        </div>
-        <div>
-          <div>
-            <Field type='text' label='Название поля' hookForm={{
-              register,
-              settings: {
-                  name: 'field2',
-              },
-              errors,
-            }} />
+          
+          <div id='text-fields' className='nrcl-components__category'>
+            <h2 className='nrcl-components__category-title'>Текстовые поля</h2>
+            <div className='nrcl-components__category-description'>
+              <h3>Описание</h3>
+              <div>
+                <p>Стандартный способ ввода любой относительно короткой информации.</p>
+              </div>
+            </div>
+            <div className='nrcl-components__category-examples'>
+              <div className='nrcl-components__element'>
+                <h3>Базовое поле</h3>
+                <div>
+                  <Field type='text' label='Заголовок поля' placeholder='Пример текста' hookForm={{
+                    register,
+                    settings: {
+                        name: 'field1',
+                    },
+                    errors,
+                  }} />
+                </div>
+              </div>
+            </div>
           </div>
-          <div>Обычное поле с подписью</div>
-        </div>
-        <div>
-          <div>
-            <Field type='text' label='Название поля' required hookForm={{
-              register,
-              settings: {
-                  name: 'field3',
-              },
-              errors,
-            }} />
-          </div>
-          <div>Обязательное поле поле с подписью</div>
-        </div>
-        <div>
-          <div>
-            <Field type='password' hookForm={{
-              register,
-              settings: {
-                  name: 'field4',
-              },
-              errors,
-            }} />
-          </div>
-          <div>Поле с скрываемым вводом</div>
-        </div>
-        <div>
-          <div>
-            <Field type='text' hookForm={{
-              register,
-              settings: {
-                  name: 'field5',
-                  onChange: (e) => alert(e.currentTarget.value),
-              },
-              errors,
-            }} />
-          </div>
-          <div>Поле с ивентом при изменении поля</div>
-        </div>
-        <div>
-          <div>
-            <Field type='text' hookForm={{
-              register,
-              settings: {
-                  name: 'field6',
-                  pattern: {
-                      value: /\+\d+ \(\d{3}\) \d{3} \d{2}-\d{2}/,
-                      template: '+7 (999) 999 99-99',
-                      message: 'Номер не соответствует шаблону',
-                  },
-              },
-              errors,
-            }} />
-          </div>
-          <div>Поле с маской</div>
         </div>
       </div>
     </div>

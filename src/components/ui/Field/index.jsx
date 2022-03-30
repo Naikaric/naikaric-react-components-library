@@ -23,9 +23,9 @@ const Field = props => {
     };
 
     return (
-        <div className={cn({'field_error': errors?.[settings.name]})}>
+        <div className={cn({'field': true, 'field_error': errors?.[settings.name]})}>
             <label>
-                {label ? <span>{label}{required ? '*' : null}</span> : null}
+                {label ? <span className={cn('field__title')}>{label}{required ? '*' : null}</span> : null}
                 {type === 'password' ? <input type='checkbox' title='Показать пароль' onChange={toggleTyped} /> : null}
 
                 {

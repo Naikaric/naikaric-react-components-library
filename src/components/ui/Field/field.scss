@@ -1,7 +1,52 @@
+@import '../../../variables.scss';
+
 .field {
+    &__input {
+        border: 1px solid $non-important-color;
+        border-radius: 3px;
+        outline: none;
+        padding: 5px;
+        transition: $transition-default;
+
+        &::placeholder {
+            color: $non-important-color;
+            transition: $transition-default;
+        }
+    }
+
+    label {
+        display: flex;
+        flex-direction: column;
+        row-gap: 4px;
+        width: min-content;
+    }
+
+    &__title {
+        color: $non-important-color;
+        font-size: 12px;
+        font-weight: 700;
+        transition: $transition-default;
+    }
+
     &_error {
         .field__input {
             border-color: red;
+        }
+    }
+
+    &:hover {
+        .field {
+            &__input {
+                border-color: $non-important-color_hover;
+
+                &::placeholder {
+                    color: $non-important-color_hover;
+                }
+            }
+
+            &__title {
+                color: $non-important-color_hover;
+            }
         }
     }
 }
