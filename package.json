@@ -1,19 +1,23 @@
 {
-  "name": "naikaric-components-library",
+  "name": "naikaric-react-components-library",
   "version": "0.1.0",
   "main": "dist",
-  "description": "Библиотека компонентов для личных проектов",
+  "description": "An react-library of components for personal projects of Naikaric",
+  "keywords": [
+    "library",
+    "react",
+    "components",
+    "Naikaric",
+    "Churilin",
+    "Nikita"
+  ],
+  "author": "Naikaric",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.2",
-    "@testing-library/react": "^12.1.4",
-    "@testing-library/user-event": "^13.5.0",
     "classnames": "^2.3.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.28.1",
-    "react-input-mask": "^2.0.4",
-    "react-scripts": "5.0.0",
-    "web-vitals": "^2.1.4"
+    "react-input-mask": "^2.0.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -42,6 +46,12 @@
     "@babel/core": "^7.17.8",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
-    "sass": "^1.49.9"
-  }
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/react": "^12.1.4",
+    "@testing-library/user-event": "^13.5.0",
+    "react-scripts": "5.0.0",
+    "sass": "^1.49.9",
+    "web-vitals": "^2.1.4"
+  },
+  "license": "MIT"
 }
