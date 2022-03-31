@@ -1,20 +1,45 @@
 @import '../../variables';
 
-.field {
-    &__input {
-        border: 1px solid $non-important-color;
-        border-radius: 3px;
-        outline: none;
-        padding: 5px;
-        transition: $transition-default;
+$field-padding: 5px;
+$visibility-icon-size: 20px;
+$min-width-input: 210px;
 
-        &::placeholder {
-            color: $non-important-color;
-            transition: $transition-default;
+.field {
+    width: fit-content;
+
+    &:not(:last-child) {
+        margin-bottom: 10px;
+    }
+
+    &_error {
+        .field__input {
+            border-color: red;
         }
     }
 
-    label {
+    &_protected {
+        .field__input {
+            padding-right: $field-padding*2 + $visibility-icon-size;
+        }
+    }
+
+    &:hover {
+        .field {
+            &__title {
+                color: $non-important-color_hover;
+            }
+
+            &__input {
+                border-color: $non-important-color_hover;
+
+                &::placeholder {
+                    color: $non-important-color_hover;
+                }
+            }
+        }
+    }
+
+    &__label {
         display: flex;
         flex-direction: column;
         row-gap: 4px;
@@ -28,24 +53,36 @@
         transition: $transition-default;
     }
 
-    &_error {
-        .field__input {
-            border-color: red;
+    &__input-wrapper {
+        position: relative;
+    }
+
+    &__input {
+        border: 1px solid $non-important-color;
+        border-radius: 3px;
+        min-width: $min-width-input;
+        outline: none;
+        padding: $field-padding;
+        transition: $transition-default;
+
+        &::placeholder {
+            color: $non-important-color;
+            transition: $transition-default;
         }
     }
 
-    &:hover {
-        .field {
-            &__input {
-                border-color: $non-important-color_hover;
+    &__toggle-visibility {
+        input {
+            display: none;
 
-                &::placeholder {
-                    color: $non-important-color_hover;
-                }
-            }
-
-            &__title {
-                color: $non-important-color_hover;
+            &+img {
+                cursor: pointer;
+                height: $visibility-icon-size;
+                position: absolute;
+                right: $field-padding;
+                top: 50%;
+                transform: translateY(-50%);
+                width: $visibility-icon-size;
             }
         }
     }

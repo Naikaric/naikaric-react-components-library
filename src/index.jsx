@@ -4,11 +4,13 @@ import reportWebVitals from './reportWebVitals';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 import { useForm } from 'react-hook-form';
 
 import Button from './components/ui/Button';
 import Field from './components/ui/Field';
+import Hlink from './components/ui/Hlink';
 
 const App = () => {
   const { register, formState: { errors } } = useForm({ shouldFocusError: false });
@@ -16,8 +18,9 @@ const App = () => {
   return (
     <div className='nrcl-page'>
       <div className='nrcl-page__menu'>
-          <a href="#buttons">Кнопки</a>
-          <a href="#text-fields">Текстовые поля</a>
+          <Hlink to='#buttons'>Кнопки</Hlink>
+          <Hlink to='#text-fields'>Текстовые поля</Hlink>
+          <Hlink to='#links'>Ссылки</Hlink>
       </div>
       <div className='nrcl-page__content'>
         <h1>Компоненты</h1>
@@ -73,6 +76,36 @@ const App = () => {
                   }} />
                 </div>
               </div>
+              <div className='nrcl-components__element'>
+                <h3>Засекреченное поле</h3>
+                <div>
+                  <Field type='password' label='Заголовок поля' placeholder='Пример текста' hookForm={{
+                    register,
+                    settings: {
+                        name: 'field2',
+                    },
+                    errors,
+                  }} />
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div id='links' className='nrcl-components__category'>
+            <h2 className='nrcl-components__category-title'>Ссылки</h2>
+            <div className='nrcl-components__category-description'>
+              <h3>Описание</h3>
+              <div>
+                <p>Ссылки используются для перехода между страницами на сайте, а также для перехода на сторонние ресурсы.</p>
+              </div>
+            </div>
+            <div className='nrcl-components__category-examples'>
+              <div className='nrcl-components__element'>
+                <h3>Базовая ссылка</h3>
+                <div>
+                  <Hlink to={'/'}>Пример ссылки</Hlink>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -81,7 +114,12 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById('root')
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

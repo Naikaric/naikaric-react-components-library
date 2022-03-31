@@ -1,0 +1,12 @@
+@import '../../variables';
+
+.hlink {
+    color: $font-color-text;
+    padding: 5px 0;
+    text-decoration: none;
+    transition: $transition-default;
+
+    &:hover {
+      color: $link-color-hover;
+    }
+}
