@@ -3,6 +3,11 @@
   "version": "0.1.6",
   "main": "dist",
   "description": "An react-library of components for personal projects of Naikaric",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Naikaric/naikaric-react-components-library"
+  },
+  "homepage": "https://github.com/Naikaric/naikaric-react-components-library#readme",
   "keywords": [
     "library",
     "react",
