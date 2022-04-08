@@ -1,6 +1,8 @@
 ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/Naikaric/naikaric-react-components-library/master?style=plastic) ![npm](https://img.shields.io/npm/v/naikaric-react-components-library) ![NPM](https://img.shields.io/npm/l/naikaric-react-components-library)
 
 # Библиотека React-компонентов
+![styled--components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
+
 UI-библиотека React-компонентов, созданная для личных проектов пользователя [Naikaric](https://github.com/Naikaric). Содержит в себе готовые элементы интерфейса для поддержания проектов в едином стиле.
 
 ## Установка

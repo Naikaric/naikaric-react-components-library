@@ -1,20 +1,18 @@
-import './hlink.scss';
+import StyledLink from './styles';
 
 import React from 'react';
-import cn from 'classnames';
-import { Link } from 'react-router-dom';
 
 const Hlink = props => {
     const mProps = JSON.parse(JSON.stringify(props));
     const { to, external } = mProps;
 
     if(!external && !to.match(/^#/)) {
-        return <Link className={cn('hlink')} {...props}></Link>
+        return <StyledLink {...props}></StyledLink>
     } else {
         mProps.href = to;
         delete mProps.to;
 
-        return <a className={cn('hlink')} {...mProps}></a>;
+        return <StyledLink as='a' {...mProps}></StyledLink>;
     }
 };
 
