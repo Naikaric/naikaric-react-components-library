@@ -1,9 +1,6 @@
-import './field.scss';
+import * as Styled from './styles';
 
 import React, { useState } from 'react';
-import cn from 'classnames';
-
-import InputMask from 'react-input-mask';
 
 import visibleIcon from '../../assets/icons/visible.png';
 import invisibleIcon from '../../assets/icons/invisible.png';
@@ -30,16 +27,14 @@ const Field = props => {
     const toggleTyped = e => {
         setIsVisible(e.currentTarget.checked);
     };
-
     return (
-        <div className={cn({'field': true, 'field_protected': type === 'password', 'field_error': errors?.[settings.name]})}>
-            <label className={cn('field__label')}>
-                {label ? <span className={cn('field__title')}>{label}{required ? '*' : null}</span> : null}
-                <div className={cn('field__input-wrapper')}>
+        <Styled.Field error={errors?.[settings.name]} protected={type === 'password'}>
+            <Styled.Label>
+                {label ? <Styled.Title>{label}{required ? '*' : null}</Styled.Title> : null}
+                <Styled.InputWrapper>
                     {
                         settings?.pattern?.template ?
-                        <InputMask
-                            className={cn('field__input')}
+                        <Styled.Input
                             type={type === 'password' ? visibilityState[isVisible].typeInput : type}
                             placeholder={placeholder}
                             {...register(settings?.name, {
@@ -49,8 +44,7 @@ const Field = props => {
                             mask={settings?.pattern?.template ? settings.pattern.template : null}
                         />
                         :
-                        <input
-                            className={cn('field__input')}
+                        <Styled.Input as='input'
                             type={type === 'password' ? visibilityState[isVisible].typeInput : type}
                             placeholder={placeholder}
                             {...register(settings?.name, {
@@ -61,16 +55,16 @@ const Field = props => {
                     }
                     {
                         type === 'password' ?
-                        <label className={cn('field__toggle-visibility')}>
+                        <Styled.ToggleVisibility>
                             <input type='checkbox' onChange={toggleTyped} />
                             <img src={visibilityState[isVisible].iconSrc} title={visibilityState[isVisible].title} />
-                        </label>
+                        </Styled.ToggleVisibility>
                         : null
                     }
-                </div>
-            </label>
+                </Styled.InputWrapper>
+            </Styled.Label>
             {errors?.[settings.name] ? <div>{errors[settings.name].message}</div> : null}
-        </div>
+        </Styled.Field>
     );
 };
 

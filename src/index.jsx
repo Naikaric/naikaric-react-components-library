@@ -8,9 +8,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { useForm } from 'react-hook-form';
 
-import Button from './components/ui/Button';
-import Field from './components/ui/Field';
-import Hlink from './components/ui/Hlink';
+import { Button, Field, Hlink } from './components';
 
 const App = () => {
   const { register, formState: { errors } } = useForm({ shouldFocusError: false });
@@ -121,7 +119,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
