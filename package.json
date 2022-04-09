@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/Naikaric/naikaric-react-components-library"
   },
-  "homepage": "https://github.com/Naikaric/naikaric-react-components-library",
+  "homepage": "https://naikaric-react-components-library.vercel.app/",
   "keywords": [
     "library",
     "react",
