@@ -1,6 +1,6 @@
 {
   "name": "naikaric-react-components-library",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "dist",
   "description": "An react-library of components for personal projects of Naikaric",
   "repository": {
