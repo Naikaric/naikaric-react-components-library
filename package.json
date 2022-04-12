@@ -28,7 +28,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "rm -rf dist && babel src/components --out-dir dist --copy-files"
+    "build": "react-scripts build",
+    "buildPackage": "rm -rf dist && babel src/components --out-dir dist --copy-files"
   },
   "eslintConfig": {
     "extends": [
