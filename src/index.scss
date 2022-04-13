@@ -49,6 +49,10 @@ p {
   display: flex;
   padding: $page-pt $page-pl-pr $page-pb;
 
+  @media screen and (max-width: 767px) {
+    padding-top: calc(50px + 20px);
+  }
+
   &__menu {
     background: $main-background-color;
     display: flex;
@@ -61,6 +65,16 @@ p {
     position: fixed;
     top: 0;
     width: $menu-width;
+
+    @media screen and (max-width: 767px) {
+      column-gap: 10px;
+      flex-direction: row;
+      height: 50px;
+      max-height: 50px;
+      max-width: none;
+      white-space: nowrap;
+      width: 100%;
+    }
   }
 
   &__content {
@@ -69,11 +83,20 @@ p {
     margin-left: auto;
     max-height: calc(100vh - ($page-pt + $page-pb));
     max-width: calc(100% - $menu-width);
-    overflow: hidden;
     width: calc(100% - $menu-width);
+
+    @media screen and (max-width: 767px) {
+      max-height: calc(100vh - 50px - 20px - 20px);
+      max-width: none;
+      width: 100%;
+    }
 
     & > h1 {
       padding-left: 20px;
+
+      @media screen and (max-height:499px) {
+        display: none;
+      }
     }
   }
 }
@@ -82,8 +105,11 @@ p {
     background: $main-background-color;
     border-radius: $br-block;
     height: calc(100% - $h1-mb - $content-padding*2);
-    overflow-y: auto;
     padding: $content-padding;
+
+    @media screen and (max-height:499px) {
+      height: calc(100%);
+    }
 
     &__element {
       &:not(:last-child) {
@@ -101,5 +127,31 @@ p {
     &:not(:last-child) {
       margin-bottom: 25px;
     }
+  }
+}
+
+.custom__scroll_gray {
+  overflow-y: auto;
+
+  &::-webkit-scrollbar-track {
+    border-radius: 2px;
+    background: #E3E3E2;
+  }
+  
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: #CDCDCD;
+  
+    &:hover {
+      background-color: #9e9e9e;
+    }
+  }
+  
+  &:hover::-webkit-scrollbar-thumb {
+    background-color: #adadad;
   }
 }

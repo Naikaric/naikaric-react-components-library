@@ -22,7 +22,7 @@ const App = () => {
       </div>
       <div className='nrcl-page__content'>
         <h1>Компоненты</h1>
-        <div className='nrcl-components'>
+        <div className='nrcl-components custom__scroll_gray'>
           <div id='buttons' className='nrcl-components__category'>
             <h2 className='nrcl-components__category-title'>Кнопки</h2>
             <div className='nrcl-components__category-description'>
